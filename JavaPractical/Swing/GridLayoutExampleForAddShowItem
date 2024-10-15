@@ -1,0 +1,23 @@
+import javax.swing.*;
+import java.awt.*;
+
+public class GridLayoutExampleForAddShowItem {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("GridLayout Example");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 300);
+
+        // Create a panel with a GridLayout of 3 rows and 3 columns
+        JPanel panel = new JPanel(new GridLayout(3, 3, 10, 10)); // 10px horizontal and vertical gaps
+
+        // Add buttons to the panel
+        for (int i = 1; i <= 9; i++) {
+            panel.add(new JButton("Button " + i));
+        }
+
+        // Add the panel to the frame
+        frame.add(panel);
+
+        frame.setVisible(true);
+    }
+}
