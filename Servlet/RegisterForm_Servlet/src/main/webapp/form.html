@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+	<style>
+		h1
+		{
+		text-align:center;
+		}
+		form{
+			background-color : skyblue;
+			margin-left:450px;
+			padding:50px;
+			margin-right:450px;
+			text-align:center;
+			border-radius:30px;
+		}
+		input{
+			border-radius:5px;
+			padding:2px;
+		}
+	</style>
+</head>
+<body>
+
+	<h1>Enter Data And Submit</h1>
+	
+	<form action="FormServlet" method="post">
+		<label for="name">Name: </label><br>
+		<input type="text" id="name" name="name"> <br><br>
+		
+		<label for="email">Email: </lable><br>
+		<input type="email" id="email" name="email"> <br><br>
+		
+		<!-- password -->
+		<label for="password">PassWord: </label><br>
+		<input type="password" id="password" name="password"> <br><br>
+		
+		<!-- Gender -->
+		<label>Gender: </label>
+		<input type="radio" name="gender" value="Male">Male
+		<input type="radio" name="gender" value="Female">Female <br><br>
+		
+		<!--ChecBox-->
+		<label>Skills: </label>
+		<input type="checkbox" name="skill" value="Java">Java
+		<input type="checkbox" name="skill" value="HTML">HTML
+		<input type="checkbox" name="skill" value="JavaScripts">JavaScripts<br><br>
+		
+		<!--DropDown-->
+		<label for="Country">Country: </label>
+		<select id="country" name="country">
+			<option value="India">INDIA</option>
+			<option value="USA">USA</option>
+		</select> <br><br>
+		
+		<!--Languages -->
+		<label for="Languages">languages: </label>
+		<select id="languages" name="language">
+			<option value="java">Java</option>
+			<option value="python">Python</option>
+			<option value="javascript">Javascript</option>
+		</select><br><br>
+		
+		<!-- hidden Files -->
+		<input type="hidden"name="userid" value="1234"> <br><br>
+		
+		<!-- Text Area -->
+		<label for="comment">Comments: </label>
+		<textarea id="comments" name="comments"></textarea><br><br>
+		
+		<!-- Date Input -->
+		<label for="dob">Date Of Birth: </label>
+		<input type="date" id="dob" name="dob"><br><br>
+	
+		<!-- Submit -->
+		<input type="submit" value="submit">
+		
+	</form>
+</body>
+</html>

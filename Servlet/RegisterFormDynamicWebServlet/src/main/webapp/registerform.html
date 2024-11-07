@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">	
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>InputForm Example</title>
+	</head>
+	<body>
+		<h1>HTML Form With Different Input Types</h1>
+		<a href="welcome">go to web page</a>
+		<form action="/submit-form" method="post">
+			<label for="username">UserName: </label>
+			<input type="text" id="username" name="username"  placeholder="Enter your name"><br><br>
+
+			<label for="password">PassWord: </label>
+			<input type="password" id="password" name="password"><br><br>
+
+			<label>Gender: </label><br>
+			<input type="radio" id="male" name="gender" value="male">
+			<label for="male">Male</label><br>
+
+			<input type="radio" id="female" name="gender" value="female">
+			<label for="female">Female</label><br><br>
+
+			<label for="age">Age: </label>
+			<input type="number" id="age" name="age"><br><br>
+
+			<label for="birthdate">Birthdate: </label>
+			<input type="date" id="birthdate" name="birthdate"><br><br>
+
+			<label for="meetin-time">Meeting Time:</label>
+			<input type="Time" id="meetin-time" name="meetin-time"><br><br>
+
+			<label for="email">Email: </label>
+			<input type="email" id="email" name="email"><br><br>
+
+			<label for="fileUpload">Upload File: </label>
+			<input type="file" id="fileUpload" name="fileUpload"><br><br>
+
+			<label for="interests">Interests: </label><br>
+			<input type="checkbox" id="interest1" name="interesr" value="coding">
+			<label for="interest1">Coding</label><br>
+
+			<input type="checkbox" id="interest2" name="interests">
+			<label for="interest2">Reading</label><br><br>
+
+			<label for="message">Message:</label><br>
+			<textarea id="message" name="message" rows="4" cols="50"> </textarea><br><br>
+
+			<input type="submit" value="Submit" >
+		</form>
+	</body>
+</html>
