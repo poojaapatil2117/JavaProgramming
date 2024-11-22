@@ -48,12 +48,6 @@ public class Display_Users extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-//		String action = request.getParameter("action");
-//
-//		if ("image".equals(action)) {
-//			serveImage(request, response);
-//		}
-
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		out.println("<html>");
@@ -64,30 +58,27 @@ public class Display_Users extends HttpServlet {
 		out.println("<body>");
 		out.println("<h1>Enter Books Details</h1>");
 
-		out.println("<form action='Display_Users' method='post' class='add-book-form'  enctype='multipart/form-data'>");
-		out.println("<h1>Enter Books Details</h1>");
-		out.println("<label for='image'>Select Image:</label>");
-		out.println("<input type='file' name='image' accept='image/*' required><br><br>");
-		out.println("Book Name:<input type='text' name='name' placeholder='Enter The Book Name'> <br><br>");
-		out.println("<input type='submit' value='Add' ><br><br>");
-		out.println("<input type='hidden' name='action' value='addbook'>");
-		out.println("</form>");
-
 		// Table FOr Display Record
 		try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-			String displayQuery = "select * from bookswithimages";
+			String displayQuery = "select * from books";
 			PreparedStatement stmt = conn.prepareStatement(displayQuery);
 			ResultSet rs = stmt.executeQuery();
 			out.println("<table border='1'>");
-			out.println("<tr> <th>ID</th> <th>Name</th> <th>BookImage</th> </tr>");
-			while (rs.next()) {
+			out.println(
+					"<tr> <th>ID</th> <th>Name</th> <th>ISBN</th> <th>Author</th> <th>Publisher</th> <th>BookCount</th> <th>Available Count</th> <th>Book Price</th> <th>Book Image</th> </tr>");
+			while(rs.next())
+			{
 				out.println("<tr>");
 				out.println("<td> " + rs.getInt(1) + "</td>");
 				out.println("<td> " + rs.getString(2) + "</td>");
-			    out.println("<td> <img src='"+rs.getString(3)+"' width='150' height='150' >"+"</td>");
+				out.println("<td> " + rs.getString(3) + "</td>");
+				out.println("<td> " + rs.getString(4) + "</td>");
+				out.println("<td> " + rs.getString(5) + "</td>");
+				out.println("<td> " + rs.getInt(6) + "</td>");
+				out.println("<td> " + rs.getInt(7) + "</td>");
+				out.println("<td> " + rs.getString(8) + "</td>");
+			    out.println("<td> <img src='"+rs.getString(9)+"' width='100' height='100' >"+"</td>");
 			    
-               // out.println("<td><img src='ImageServlet?id=" + rs.getInt(1) + "' width='100' height='100'/></td>");
-             
 				out.println("</tr>");
 			}
 			out.println("</table>");
@@ -103,39 +94,40 @@ public class Display_Users extends HttpServlet {
 
 		String bookId = request.getParameter("id");
 		String bookName = request.getParameter("bkname");
+		String img = request.getParameter("bkimg");
+		String author =request.getParameter("bkauthor");
+		String publication = request.getParameter("bkpublication");
 
 		out.println("<form action='Display_Users'>");
-		
+
 		out.println("<input type='checkbox' name='id' id='bookid'value='id'> Id");
-
 		out.println("<input type='checkbox' name='bkname' id='bookname'value='bookname'> BookName");
-
-//		out.println("<label for='bookPrice'>price</label>");
-//		out.println("<input type='checkbox' name='bkprice' id='bookprice'value='bprice'>");
-
 		out.println("<input type='checkbox' name='bkimg' id='bookimg'value='bimage'>Image");
-
-//		out.println("<label for='bookDeposite'>Deposite</label>");
-//		out.println("<input type='checkbox' name='bkdeposit' id='bookdeposite'value='bdeposite'>");
-
-//		out.println("<label for='bookDescription'>Description</label>");
-//		out.println("<input type='checkbox' name='bkdescribe' id='bookdescrip'value='bdescription'>");
-
-//		out.println("<input type='hidden' name='action' value='selectcheckbox'>");
-
+		out.println("<input type='checkbox' name='bkauthor' id='bookauthor'value='bauthor'> Author");
+		out.println("<input type='checkbox' name='bkpublication' id='bookpublication'value='bpublication'> Publication");
 		out.println("<input type='submit' value='Submit'>");
 		out.println("</form><br>");
 
 		// ---------------------------------------------------------------------------
 		// To display The Records According to Checkbox..
 
-		if (bookId != null || bookName != null) {
+		if (bookId != null || bookName != null || img != null || author!=null || publication!=null) {
 			try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
 				StringBuilder sql = new StringBuilder("SELECT id");
 				if (bookName != null) {
 					sql.append(",name");
 				}
-				sql.append(" FROM bookswithimages");
+				if (img != null) {
+					sql.append(",img");
+				}
+				if (author != null) {
+					sql.append(",author");
+				}
+				if (publication != null) {
+					sql.append(",publication");
+				}
+				
+				sql.append(" FROM books");
 
 				Statement stmt = conn.createStatement();
 				ResultSet rs = stmt.executeQuery(sql.toString());
@@ -150,6 +142,15 @@ public class Display_Users extends HttpServlet {
 				if (bookName != null) {
 					out.println("<th>Book Name</th>");
 				}
+				if (img != null) {
+					out.println("<th>Book Image</th>");
+				}
+				if (author != null) {
+					out.println("<th>Book Author</th>");
+				}
+				if (publication != null) {
+					out.println("<th>Book Publication</th>");
+				}
 				out.println("</tr>");
 
 				// Add Row To the Table....
@@ -161,11 +162,19 @@ public class Display_Users extends HttpServlet {
 					if (bookName != null) {
 						out.println("<td> " + rs.getString(2) + "</td>");
 					}
+					if (img != null) {
+						out.println("<td> <img src='" + rs.getString("img") + "' width='100' height='100'> " + "</td>");
+					}
+					if (author != null) {
+						out.println("<td> " + rs.getString("author") + "</td>");
+					}
+					if (publication != null) {
+						out.println("<td> " + rs.getString("publication") + "</td>");
+					}
 					out.println("</tr>");
 				}
 
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		} else {
@@ -181,96 +190,5 @@ public class Display_Users extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		// Get The Data
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-//		String action = request.getParameter("action");
-
-		// Add Books in Table
-//		if(action.equals("addbook"))
-//		{
-
-		String name = request.getParameter("name");
-		Part filePart = request.getPart("image");
-
-		String fileName = filePart.getSubmittedFileName();
-
-		String uploadPath = "C:/Users/USER/eclipse-workspace/MiniProjectLibraryManagementServlet/src/main/webapp/BookImages"; 
-		
-		System.out.println("Uploaded Images Path :"+uploadPath);
-		filePart.write(uploadPath+"/"+fileName);
-		String img_url = "BookImages/"+ fileName;
-		
-//		System.out.println("BookImages/"+img_url);
-
-		try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
-			String insertQuery = "INSERT INTO bookswithimages(name,img)values(?,?)";
-			PreparedStatement stmt = conn.prepareStatement(insertQuery);
-
-			stmt.setString(1, name);
-			stmt.setString(2, img_url);
-
-			stmt.executeUpdate();
-			System.out.println("Data Inserted Successfully...");
-
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		response.sendRedirect("Display_Users");
-		
-		
-//		}
-
-		// Check Box
-//		else if(action.equals("selectcheckbox"))
-//		{
-//			String bookId = request.getParameter("id");
-//			String bookName = request.getParameter("bkname");
-//			System.out.println("In Action SelectCheckBox");
-//			
-//			try(Connection conn = DriverManager.getConnection(URL,USER,PASSWORD))
-//			{
-//				//Sql Query To Fetch Data...
-//				
-//				StringBuilder sql = new StringBuilder("SELECT id");
-//				if(bookName!=null)
-//				{
-//					sql.append(",name");
-//				}
-//				sql.append(" FROM bookswithimages");
-//				
-//				Statement stmt = conn.createStatement();
-//				ResultSet rs = stmt.executeQuery(sql.toString());
-//				
-//				//Start The Table
-//				out.println("<table border='1'>");
-//				//table header
-//				out.println("<tr>");
-//				out.println("<th>Book Id</th>");
-//				if(bookName!=null)
-//				{
-//					out.println("<th>Book Name</th>");
-//				}
-//				out.println("</tr>");
-//				
-//				while(rs.next())
-//				{
-//					out.println("<tr>");
-//					out.println("<td>"+rs.getInt(1)+"</th>");
-//					if(bookName!=null)
-//					{
-//						out.println("<td>"+rs.getString(2)+"</th>");
-//					}
-//					out.println("</tr>");
-//				}
-//                out.println("</table>");
-//			} catch (SQLException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
-//		}
-
 	}
 }

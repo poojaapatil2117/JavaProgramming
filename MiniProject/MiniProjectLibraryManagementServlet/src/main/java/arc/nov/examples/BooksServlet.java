@@ -10,12 +10,19 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
 
 @WebServlet("/BooksServlet")
+
+@MultipartConfig(fileSizeThreshold = 1024 * 1024 * 1, // 1 MB
+maxFileSize = 1024 * 1024 * 10, // 10 MB
+maxRequestSize = 1024 * 1024 * 100 // 100 MB
+)
 public class BooksServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -60,7 +67,7 @@ public class BooksServlet extends HttpServlet {
 			out.println("<div>");
 			out.println("<table border='1'>");
 			out.println(
-					"<tr> <th>ID</th> <th>Name</th> <th>ISBN</th> <th>Author</th> <th>Publisher</th> <th>BookCount</th> <th>Available Count</th> <th>Book Price</th> </tr>");
+					"<tr> <th>ID</th> <th>Name</th> <th>ISBN</th> <th>Author</th> <th>Publisher</th> <th>BookCount</th> <th>Available Count</th> <th>Book Price</th> <th>Book Image</th> </tr>");
 			while (rs.next()) {
 				out.println("<tr>");
 				out.println("<td> " + rs.getInt(1) + "</td>");
@@ -71,6 +78,8 @@ public class BooksServlet extends HttpServlet {
 				out.println("<td> " + rs.getInt(6) + "</td>");
 				out.println("<td> " + rs.getInt(7) + "</td>");
 				out.println("<td> " + rs.getString(8) + "</td>");
+			    out.println("<td> <img src='"+rs.getString(9)+"' width='100' height='100' >"+"</td>");
+			    
 				out.println("</tr>");
 			}
 			out.println("</table>");
@@ -82,7 +91,7 @@ public class BooksServlet extends HttpServlet {
 		// For Books Details..
 		out.println("<div style='display:none' id='adddetails'>");
 		out.println("<body>");
-		out.println("<form action='BooksServlet' method='post'>");
+		out.println("<form action='BooksServlet' method='post' enctype='multipart/form-data'>");
 		out.println("<h1>Add Books Records :</h1>");
 		out.println("Book Name:<input type='text' name='name' placeholder='Enter The Book Name'> <br><br>");
 		out.println("ISBN :<input type='text' name='isbn' placeholder='Enter ISBN Number'><br><br>");
@@ -93,6 +102,10 @@ public class BooksServlet extends HttpServlet {
 				"Available Count: <input type='text' name='avlcnt' placeholder='Enter The Available Count''><br><br>");
 		out.println("Book Price: <input type='text' name='bkprice' placeholder='Enter The Book Price''><br><br>");
 		out.println("<input type='hidden' name='action' value='add'>");
+		
+		out.println("<label for='image'>Select Image:</label>");
+		out.println("<input type='file' name='image' accept='image/*' required><br><br>");
+		
 		out.println("<input type='submit' value='Add' ><br><br>");
 
 		out.println("</div>");
@@ -174,7 +187,7 @@ public class BooksServlet extends HttpServlet {
 	        //Table FOr Display Record
 	        out.println("<table border='1'>");
 			out.println(
-					"<tr> <th>ID</th> <th>Name</th> <th>ISBN</th> <th>Author</th> <th>Publisher</th> <th>BookCount</th> <th>Available Count</th> <th>Book Price</th> </tr>");
+					"<tr> <th>ID</th> <th>Name</th> <th>ISBN</th> <th>Author</th> <th>Publisher</th> <th>BookCount</th> <th>Available Count</th> <th>Book Price</th> <th>Book Image</th> </tr>");
 			while(rs.next())
 			{
 				out.println("<tr>");
@@ -186,6 +199,8 @@ public class BooksServlet extends HttpServlet {
 				out.println("<td> " + rs.getInt(6) + "</td>");
 				out.println("<td> " + rs.getInt(7) + "</td>");
 				out.println("<td> " + rs.getString(8) + "</td>");
+			    out.println("<td> <img src='"+rs.getString(9)+"' width='100' height='100' >"+"</td>");
+			    
 				out.println("</tr>");
 			}
 			out.println("</table>");
@@ -384,6 +399,21 @@ public class BooksServlet extends HttpServlet {
 			int cnt = Integer.parseInt(request.getParameter("bookcnt"));
 			int avlcount = Integer.parseInt(request.getParameter("avlcnt"));
 			String bkprice = request.getParameter("bkprice");
+			String img = request.getParameter("bkimg");
+			
+			//For Uploading Image
+			
+			Part filePart = request.getPart("image");
+
+			String fileName = filePart.getSubmittedFileName();
+
+			String uploadPath = "C:/Users/USER/eclipse-workspace/MiniProjectLibraryManagementServlet/src/main/webapp/BookImages"; 
+			
+			System.out.println("Uploaded Images Path :"+uploadPath);
+			filePart.write(uploadPath+"/"+fileName);
+			String img_url = "BookImages/"+ fileName;
+			
+			//------------------------------------------------------
 
 			System.out.println("Book Details " + name + "," + isbn + "," + author + "," + publisher + "," + cnt + ","
 					+ avlcount + "," + "TO check The Name And Count of is Taken or not");
@@ -391,7 +421,7 @@ public class BooksServlet extends HttpServlet {
 			// Insert The Book Records In books table
 			try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD)) {
 				PreparedStatement preparedStatement = null;
-				String sqlQuery = "INSERT INTO books (name,isbn,author,publication,quantity,avlquanti,bookprice) values(?,?,?,?,?,?,?)";
+				String sqlQuery = "INSERT INTO books (name,isbn,author,publication,quantity,avlquanti,bookprice,img) values(?,?,?,?,?,?,?,?)";
 				preparedStatement = conn.prepareStatement(sqlQuery);
 
 				preparedStatement.setString(1, name);
@@ -401,7 +431,7 @@ public class BooksServlet extends HttpServlet {
 				preparedStatement.setInt(5, cnt);
 				preparedStatement.setInt(6, avlcount);
 				preparedStatement.setString(7, bkprice);
-
+				preparedStatement.setString(8, img_url);
 				preparedStatement.executeUpdate();
 
 				System.out.println("Data Inserted Successfully");
