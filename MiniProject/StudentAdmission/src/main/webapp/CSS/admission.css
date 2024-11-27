@@ -1,0 +1,103 @@
+body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fc;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin: 0;
+            color: #e74c3c;  /* Red (Warning color) */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group button {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+        }
+
+        .form-group button {
+            background-color: #f39c12;  /* Warning Button Color (Orange) */
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .form-group button:hover {
+            background-color: #e67e22;  /* Darker Orange (Hover Effect) */
+        }
+
+        .form-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Additional styling */
+        .form-group input[type="file"] {
+            padding: 8px;
+        }
+
+        select {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .form-group input[type="tel"] {
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Section for Submit button */
+        .form-group button[type="submit"] {
+            margin-top: 20px;
+            padding: 12px;
+        }

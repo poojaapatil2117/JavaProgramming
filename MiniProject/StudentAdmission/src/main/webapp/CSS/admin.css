@@ -1,0 +1,141 @@
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+			background-image: url('../images/slider_background.jpg');
+        }
+
+        /* Header and Links */
+        h1, a {
+            text-align: center;
+            color: #ffffff;
+            background-color: #3498db;
+            padding: 12px;
+            text-decoration: none;
+            display: inline-block;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+
+        h1 {
+            background-color: #2c3e50;
+            margin-bottom: 30px;
+        }
+
+        a:hover {
+            background-color: #2980b9;
+        }
+
+        /* Centered Table */
+        table {
+            width: 80%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2980b9;
+            color: white;
+        }
+
+        td {
+            background-color: #ecf0f1;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+
+        /* Button Styles */
+        button, .btn {
+            background-color: #27ae60;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            margin: 10px auto;
+            display: block;
+        }
+
+        button:hover, .btn:hover {
+            background-color: #2ecc71;
+        }
+
+        /* Form and Input Styles */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #34495e;
+        }
+
+        input[type="text"], input[type="email"], input[type="password"], input[type="file"], select {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            background-color: #fafafa;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .file-upload {
+            background-color: #ecf0f1;
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            cursor: pointer;
+        }
+
+        .file-upload:hover {
+            background-color: #dcdfe1;
+        }
+
+        /* Success/ Error Message */
+        .message {
+            text-align: center;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .success {
+            background-color: #2ecc71;
+            color: white;
+        }
+
+        .error {
+            background-color: #e74c3c;
+            color: white;
+        }

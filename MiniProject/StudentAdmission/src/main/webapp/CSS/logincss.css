@@ -1,0 +1,86 @@
+body {
+    background-color: #fff8e6; /* Soft beige background */
+    font-family: Arial, sans-serif; /* Clean font for readability */
+    background-image: url('/StudentAdmission/images/slider_background.jpg');
+}
+
+.card {
+    background-color: #f8f9fa; /* Light gray card background */
+    border: 1px solid #ddd; /* Subtle border for the card */
+    border-radius: 10px; /* Rounded corners */
+    width: 100%; /* Full width within the container */
+    max-width: 800px; /* Maximum width to make the card larger */
+    padding: 40px; /* More padding for spacious layout */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Slight shadow for emphasis */
+    margin: auto; /* Center the card */
+}
+
+.card-header {
+    background-color: #ffcc00; /* Bright yellow header to match the theme */
+    color: #333; /* Dark text for contrast */
+    font-weight: bold; /* Emphasize the title */
+    font-size: 1.8rem; /* Larger font size */
+    text-align: center; /* Center-align the header */
+    padding: 20px; /* Add padding for header spacing */
+}
+
+.card-body {
+    padding: 30px; /* Increase card body padding */
+}
+
+.btn-dark {
+    background-color: #ff9900; /* Orange button to align with the theme */
+    border-color: #ff9900;
+    color: #fff; /* White text for readability */
+    font-size: 1.2rem; /* Bigger font size for buttons */
+    padding: 10px 20px; /* Larger button padding */
+}
+
+.btn-dark:hover {
+    background-color: #cc7a00; /* Darker orange for hover effect */
+    border-color: #cc7a00;
+}
+
+a.btn-link {
+    color: #0066cc; /* Blue link for accessibility */
+    text-decoration: underline; /* Emphasize links */
+    font-size: 1rem; /* Slightly bigger link font */
+}
+
+a.btn-link:hover {
+    color: #003d99; /* Darker blue on hover */
+}
+
+.text-white {
+    color: #fff !important; /* Force white text where needed */
+}
+
+.form-control {
+    border: 1px solid #ddd; /* Light gray border for inputs */
+    border-radius: 5px; /* Rounded inputs */
+    height: 50px; /* Make inputs taller */
+    font-size: 1.2rem; /* Larger text inside inputs */
+}
+
+.form-select {
+    border: 1px solid #ddd; /* Match the input styling */
+    border-radius: 5px;
+    height: 50px; /* Taller dropdown */
+    font-size: 1.2rem; /* Larger dropdown text */
+}
+
+.container {
+    max-width: 1000px; /* Expand container size */
+    margin-top: 50px; /* Add spacing above the card */
+}
+
+.text-center p a {
+    color: #ffcc00; /* Yellow link to match the theme */
+    font-weight: bold;
+    font-size: 1rem; /* Slightly larger text */
+}
+
+.text-center p a:hover {
+    color: #cc9900; /* Slightly darker yellow on hover */
+}
+

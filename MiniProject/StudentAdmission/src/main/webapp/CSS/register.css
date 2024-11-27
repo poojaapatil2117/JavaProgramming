@@ -1,0 +1,98 @@
+/* Custom Styles for Registration Form */
+body {
+    background-color: #e9f1fa; /* Light blue background for the page */
+    font-family: 'Arial', sans-serif;
+    background-image: url('../images/slider_background.jpg');
+    background-size: cover;  /* Ensure the background covers the entire screen */
+    background-position: center center;  /* Center the background image */
+    background-attachment: fixed; /* Keep the background fixed when scrolling */
+}
+
+/* Container for the form */
+.container {
+    max-width: 600px;
+    margin-top: 50px;
+}
+
+/* Card with semi-transparent background */
+.card {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.9); /* White background with 90% opacity */
+    opacity: 0.95;  /* Adjust this for transparency */
+    padding: 1rem;
+}
+
+.card-header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: rgba(0, 123, 255, 0.8); /* Blue background with 80% opacity */
+    color: #fff;
+    padding: 1rem;
+}
+
+.card-body {
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+}
+
+/* Form labels */
+.form-label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+}
+
+/* Input radio buttons */
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+/* Button styles */
+.btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    background-color: rgba(0, 123, 255, 0.8); /* Blue background with 80% opacity */
+    color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: rgba(0, 86, 179, 0.8); /* Darker blue on hover with opacity */
+}
+
+/* Links styling */
+a {
+    text-decoration: none;
+    color: rgba(0, 123, 255, 0.8); /* Transparent blue color */
+}
+
+a:hover {
+    color: rgba(0, 86, 179, 0.8); /* Darker transparent blue on hover */
+}
+
+/* Form input fields focus effect */
+.form-control:focus, .form-select:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+}
+
+/* Radio Button Styling */
+.form-check-label {
+    color: #333;
+}
+
+/* Custom Styling for the card footer and form instructions */
+.card-footer {
+    background-color: rgba(248, 249, 250, 0.9); /* Light gray background with 90% opacity */
+    text-align: center;
+}
