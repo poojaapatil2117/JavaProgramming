@@ -121,16 +121,24 @@ Access the application at http://localhost:8080/CarSales.
 
 - Include snapshots of the admin dashboard, car listings, and purchase flow.
 
-- <img src = "output screenshots/c1.png" alt = "1 image"> 
-- <img src = "output screenshots/c2.png" alt = "2 image"> 
-- <img src = "output screenshots/c3.png" alt = "3 image"> 
-- <img src = "output screenshots/c4.png" alt = "4 image"> 
-- <img src = "output screenshots/c5.png" alt = "5 image"> 
-- <img src = "output screenshots/c6.png" alt = "6 image"> 
-- <img src = "output screenshots/c7.png" alt = "7 image"> 
-- <img src = "output screenshots/c8.png" alt = "8 image"> 
-- <img src = "output screenshots/c9.png" alt = "9 image"> 
-- <img src = "output screenshots/c10.png" alt = "10 image"> 
-- <img src = "output screenshots/c11.png" alt = "11 image"> 
+  <img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/CarSales/output/profile.jsp.png?raw=true">
+  
+  <img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/CarSales/output/c1.png?raw=true">
+  
+  <img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/CarSales/output/c2.png?raw=true">
 
+  <img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/CarSales/output/c3.png?raw=true">
 
+  <img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/CarSales/output/c4.png?raw=true">
+
+  <img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/CarSales/output/c5.png?raw=true">
+
+  <img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/CarSales/output/c6.png?raw=true">
+
+  <img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/CarSales/output/c7.png?raw=true">
+
+  <img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/CarSales/output/c8.png?raw=true">
+
+  <img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/CarSales/output/c9.png?raw=true">
+
+  <img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/CarSales/output/c10.png?raw=true">
