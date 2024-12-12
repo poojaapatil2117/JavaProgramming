@@ -87,11 +87,10 @@ This project is a simple shopping cart web application built using **Java Servle
 
 ## Database Configuration
 
-Update the following in `DBcon.java`:
 ```java
-private static final String URL = "jdbc:mysql://localhost:3306/your_database_name";
-private static final String USER = "your_username";
-private static final String PASSWORD = "your_password";
+private static final String URL = "jdbc:mysql://localhost:3306/shopping_DB";
+private static final String USER = "root";
+private static final String PASSWORD = "Root";
 ```
 
 ---
@@ -99,3 +98,13 @@ private static final String PASSWORD = "your_password";
 ## Author
 
 This project was developed as a learning exercise in **Java Web Development**. Contributions or suggestions are welcome!
+
+## SnapShot
+
+<img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/ShoppingCartSPMiniProject/OutputSnapShot/localhost_8080_ShoppingCarJSPMiniProject_login.jsp.png?raw=true">
+
+<img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/ShoppingCartSPMiniProject/OutputSnapShot/index.PNG?raw=true">
+
+<img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/ShoppingCartSPMiniProject/OutputSnapShot/localhost_8080_ShoppingCarJSPMiniProject_cart.jsp.png?raw=true">
+
+<img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/ShoppingCartSPMiniProject/OutputSnapShot/localhost_8080_ShoppingCarJSPMiniProject_order.jsp.png?raw=true">
