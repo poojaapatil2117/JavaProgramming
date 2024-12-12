@@ -104,8 +104,29 @@ The application uses a database named `phonebook_db` with the following two tabl
 
 ## License
 
+
+
 This project is open-source and available for modification and enhancement.
 
 ---
 
-**Developed By**: Pallavi
+**Developed By**: Pooja
+
+## SnapShot
+
+<img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/phonebook_jspProject/OutputImages/localhost_8080_phonebook_jspProject_register.jsp.png?raw=true">
+
+<img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/phonebook_jspProject/OutputImages/localhost_8080_phonebook_jspProject_login.jsp.png?raw=true">
+
+<img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/phonebook_jspProject/OutputImages/localhost_8080_phonebook_jspProject_addContact.jsp.png?raw=true">
+
+<img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/phonebook_jspProject/OutputImages/localhost_8080_phonebook_jspProject_viewContact.jsp.png?raw=true">
+
+<img src="https://github.com/poojaapatil2117/JavaProgramming/blob/master/MiniProject/phonebook_jspProject/OutputImages/localhost_8080_phonebook_jspProject_editContact.jsp_cid=12.png?raw=true">
+
+
+
+
+
+
+
